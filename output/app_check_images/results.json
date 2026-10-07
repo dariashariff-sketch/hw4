@@ -1,0 +1,51 @@
+{
+  "db": {
+    "berkeley_price": 72.0,
+    "berkeley_stock": {
+      "L": 5,
+      "M": 25,
+      "S": 8,
+      "XL": 8,
+      "XS": 25,
+      "XXL": 12
+    }
+  },
+  "check1": {
+    "question": "How many of these do you have left in size L, and what is the price?",
+    "answer": "The Berkeley Quarter-Zip is $72, and there are 5 left in size L. Boola boola!"
+  },
+  "check2": {
+    "question": "What quarter-zips do you have?",
+    "answer": "We have 11 quarter-zip matches, priced at $72 each, including college styles and Yale Law School gear. Berkeley, Branford, School of Art, School of Medicine, and Yale Law School are currently in stock in every size; I\u2019ve put all the matches on the page for you. Boola boola!",
+    "shelf_title": "Quarter-Zips",
+    "cards": [
+      "Benjamin Franklin Quarter-Zip",
+      "Berkeley Quarter-Zip",
+      "Branford Quarter-Zip",
+      "Morse Quarter-Zip",
+      "School Of Art Quarter-Zip",
+      "School Of Engineering Quarter-Zip",
+      "School Of Medicine Quarter-Zip",
+      "School Of Public Health Quarter-Zip",
+      "Trumbull Quarter-Zip",
+      "Yale Law School Quarter-Zip",
+      "School Of Architecture Crewneck"
+    ]
+  },
+  "check3": {
+    "product": "Berkeley Quarter-Zip",
+    "drawer_text": "Berkeley Quarter-Zip\nSize M \u00b7 $72.00",
+    "subtotal": "Subtotal (1 item)\n$72.00",
+    "url_after_add": "http://localhost:5173/"
+  },
+  "check4": {
+    "clickable_objects": 8,
+    "depth_layers": 4,
+    "layer_offsets": [
+      "translate(-2.11062px, 1.36185px)",
+      "translate(-3.51769px, 2.26975px)",
+      "translate(-5.27654px, 3.40463px)",
+      "translate(-7.03539px, 4.5395px)"
+    ]
+  }
+}

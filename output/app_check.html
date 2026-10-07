@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Campus Customs: App Check (Problem 11)</title>
+<style>
+  body { margin: 0; background: #f5efe4; color: #15203a; font: 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 1040px; margin: 0 auto; padding: 40px 24px 70px; }
+  h1 { font-family: Georgia, serif; font-weight: 600; font-size: 2.1rem; margin: 0 0 6px; }
+  h2 { font-family: Georgia, serif; font-weight: 600; font-size: 1.45rem; margin: 0 0 14px; }
+  .sub { color: #6d675a; margin: 0 0 26px; }
+  table { border-collapse: collapse; width: 100%; background: #fff; border: 1px solid #e2d8c4; border-radius: 10px; overflow: hidden; margin-bottom: 40px; }
+  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid #eee6d6; font-size: .95rem; }
+  th { background: #0b1830; color: #fff; font-weight: 600; }
+  tr:last-child td { border-bottom: 0; }
+  .pass { font-weight: 700; color: #2f6b4f; }
+  section { background: #fff; border: 1px solid #e2d8c4; border-radius: 14px; padding: 26px 26px 22px; margin-bottom: 34px; }
+  img { width: 100%; height: auto; display: block; border: 1px solid #e2d8c4; border-radius: 8px; }
+  .caption { margin: 14px 0 0; }
+  .facts { margin: 10px 0 0; font-size: .9rem; color: #4f5b6e; }
+  code { background: #f1ede5; padding: 1px 5px; border-radius: 4px; font-size: .88em; }
+  footer { color: #6d675a; font-size: .85rem; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Campus Customs: App Check</h1>
+  <p class="sub">Problem 11. Tested on the live site (React frontend + FastAPI/Pydantic AI backend) in Microsoft Edge at 1440&times;900, as a guest shopper.</p>
+
+  <table>
+    <tr><th>#</th><th>Check</th><th>Result</th></tr>
+    <tr><td>1</td><td>Chat answers an inventory question with the correct stock and price from the database</td><td class="pass">Pass</td></tr>
+    <tr><td>2</td><td>A category question ("quarter-zips") makes matching product cards appear on the page</td><td class="pass">Pass</td></tr>
+    <tr><td>3</td><td>Usability feature from Problem 9: add to cart from a card, then the mini-cart drawer</td><td class="pass">Pass</td></tr>
+    <tr><td>4</td><td>Problem 10 design: the interactive 2.5D dorm-room home page</td><td class="pass">Pass</td></tr>
+  </table>
+
+  <section>
+    <h2>1. Chat checks an item's inventory level</h2>
+    <img src="app_check_images/inventory.png" alt="Berkeley Quarter-Zip product page with the chat answering: $72, 5 left in size L">
+    <p class="caption">On the Berkeley Quarter-Zip page, the shopper asks <em>"How many of these do you have left in size L, and what is the price?"</em> and the assistant replies <strong>"$72, and there are 5 left in size L."</strong> That matches the database exactly. The bot also understood "these" from the page the shopper is on.</p>
+    <p class="facts">Database check (<code>campus_customs.db</code>): price = <strong>$72.00</strong>; inventory L = <strong>5</strong> (XS 25, S 8, M 25, L 5, XL 8, XXL 12).</p>
+  </section>
+
+  <section>
+    <h2>2. Search results cards appear after a category question</h2>
+    <img src="app_check_images/quarterzip_cards.png" alt="Results shelf titled Quarter-Zips with 11 product cards, next to the chat reply">
+    <p class="caption">Asking <em>"What quarter-zips do you have?"</em> makes the page show a <strong>"Quarter-Zips · 11 items"</strong> shelf of product cards (image, name, price, short description, stock badges). The cards come from the agent's structured results and are built from the database. Each card links to its product page.</p>
+    <p class="facts">Database check: the Quarter-Zips category has <strong>11</strong> products, all <strong>$72</strong>. The shelf showed all 11.</p>
+  </section>
+
+  <section>
+    <h2>3. Usability feature (Problem 9): add to cart from a card + mini-cart drawer</h2>
+    <img src="app_check_images/usability_quick_add.png" alt="Size M selected on the Berkeley card and the Added to your cart drawer showing a $72.00 subtotal">
+    <p class="caption">Straight from a results card, the shopper picks size <strong>M</strong> and clicks <strong>"Add M to cart"</strong>. A drawer slides in confirming <strong>"Berkeley Quarter-Zip, Size M, $72.00"</strong> with the subtotal and a Checkout button. They added an item in two clicks without leaving the page; sold-out sizes (crossed out) can't be picked.</p>
+  </section>
+
+  <section>
+    <h2>4. The 2.5D dorm-room home page (Problem 10)</h2>
+    <img src="app_check_images/dorm_room.png" alt="Illustrated Yale dorm room at night with a hoodie on the desk chair, crewnecks on a dresser, and the YALE pennant glowing with an Our story label">
+    <p class="caption">The home page is an illustrated Yale dorm room I built in layered SVG: a hoodie on the chair, crewnecks and a fleece jacket on the dresser, tees on the shelf, a quarter-zip on the hook, the laptop, the pennant, and the bulldog. Each of these is a clickable doorway into the shop. Here the mouse is over the pennant, so it shows its soft white glow and an <strong>"Our story"</strong> label. Clicking any object zooms the camera into it and opens that section.</p>
+    <p class="facts">Measured on the live page: <strong>8</strong> clickable objects and <strong>4</strong> depth layers. As the mouse moves, the layers shift by increasing amounts (back to front: 2.1, 3.5, 5.3, 7.0 px), which is what makes the flat drawing feel 3D.</p>
+  </section>
+
+  <footer>Screenshots are in <code>app_check_images/</code>. To re-run this check: start the backend and frontend, then run <code>.venv/Scripts/python tests/app_check.py</code> from the homework 4 folder. It retakes the screenshots and writes the chat's answers to <code>app_check_images/results.json</code>.</footer>
+</main>
+</body>
+</html>

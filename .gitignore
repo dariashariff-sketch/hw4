@@ -1,0 +1,37 @@
+# --- secrets: never commit real keys (use .env.example as the template) ---
+.env
+.env.*
+!.env.example
+
+# --- data pack: database + product photos stay out of the repo ---
+data/
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+data.zip
+products/
+products_clean/
+backend/media_clean/
+*.jpg
+*.jpeg
+# (PNG screenshots in output/app_check_images/ and the SVG drawings are allowed)
+frontend/public/categories/*.png
+
+# --- Python ---
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# --- Node / Vite ---
+node_modules/
+frontend/dist/
+*.log
+npm-debug.log*
+
+# --- editors / OS ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
