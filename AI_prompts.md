@@ -95,3 +95,4 @@ A log of the prompts I gave the AI assistant while working on this homework, org
 
 1. Now for the last problem, problem 13, titled: "Push to Github and submit the URL." Put all this code inside homework 4 in a folder titled "hw4" and push it to my public Github repo. Make sure not to put my real .env, campus_customs.db, or product images in the Github repo (leave all of that outside the folder). Use .gitignore and include .env.example with placeholders only. Note: in the folder, the agent itself should be 4 files under backend/: prompts/prompt.md, agent.py, tools.py, and models.py. README.md should explain how to run the front end and back end after placing the data pack.
 2. here is the github repo: https://github.com/dariashariff-sketch/hw4.git
+3. does the readme include how to run the front end and back end?
